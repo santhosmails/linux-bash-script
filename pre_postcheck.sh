@@ -77,14 +77,6 @@ linuxhost()
         uptime
         who
         echo -e '\n'
-}
-
-# PROCESS INFORMATION
-processinfo()
-{
-        echo
-        echo 'PROCESS INFORMATION:'
-        echo '--------------------'
         echo
         echo 'NTP/CHRONYD STATUS:'
         echo '-------------------'
@@ -355,7 +347,6 @@ linuxmise()
 }
 
 
-
 # BACKUP INFORMATION
 linuxback()
 {
@@ -382,7 +373,7 @@ linuxrpm()
         echo -e '\n'
 }
 
-# PROCESS INFORMATION
+# CURRENT SYSTEM PROCESS INFORMATION
 linuxprocess()
 {
         echo 'TOP 10 PROCESS:'
@@ -405,26 +396,24 @@ case $(uname) in
                 echo
                 echo "File generated on $(date)" > ${OUTPUTFILE}
                 echo 'Host Information . . . . . 10%'
-                linuxhost >> ${OUTPUTFILE}
-                echo 'Host Information . . . . . 20%'
-                processinfo >> ${OUTPUTFILE}              
-                echo 'Disk Information . . . . . . 30%'
+                linuxhost >> ${OUTPUTFILE}        
+                echo 'Disk Information . . . . . . 20%'
                 linuxdisk >> ${OUTPUTFILE}
-                echo 'Network Information . . . . . 40%'
+                echo 'Network Information . . . . . 30%'
                 linuxnetwork >> ${OUTPUTFILE}
-                echo 'Error Information . . . . . 50%'
+                echo 'Error Information . . . . . 40%'
                 linuxerror >> ${OUTPUTFILE}
-                echo 'Hardware Information . . . . . 60%'
+                echo 'Hardware Information . . . . . 50%'
                 linuxhardware >> ${OUTPUTFILE}
-                echo 'Service Information . . . . . 70%'
+                echo 'Service Information . . . . . 60%'
                 linuxservice >> ${OUTPUTFILE}
-                echo 'Miscellaneous Information . . . . . 80%'
+                echo 'Miscellaneous Information . . . . . 70%'
                 linuxmise &>> ${OUTPUTFILE}
-                echo 'Backup Information . . . . . 90%'
+                echo 'Backup Information . . . . . 80%'
                 linuxback >> ${OUTPUTFILE}
-                echo 'RPM Information . . . . . 95%'
+                echo 'RPM Information . . . . . 90%'
                 linuxrpm >> ${OUTPUTFILE}
-                echo 'Process Information . . . . . 100%'
+                echo 'System Processes Information . . . . . 100%'
                 linuxprocess >> ${OUTPUTFILE}
                 echo
                 echo "File generated at ${OUTPUTFILE} on $(date)"
